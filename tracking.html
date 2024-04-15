@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sustainable Development Website - Home</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="main.js"></script>
+  </head>
+  <body>
+    <nav id="navbar">
+      <div class="logo">
+        <img src="tree_logo.png" alt="Tree Logo" />
+        <span class="company-name">GreenGrade</span>
+      </div>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="mission.html">Mission</a></li>
+        <li><a href="tracking.html">Tracking</a></li>
+        <li><a href="awareness.html">Awareness</a></li>
+        <li><a href="community.html">Community</a></li>
+        <li><a href="redeem.html">Redeem</a></li>
+        <li><a href="support.html">Support</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="tracking-container">
+      <div class="filter-search">
+        <input type="text" id="searchInput" placeholder="Search offers..." />
+        <select id="categoryFilter">
+          <option value="all">All Categories</option>
+          <option value="transportation">Transportation</option>
+          <option value="energy">Energy</option>
+          <option value="waste">Waste Management</option>
+        </select>
+      </div>
+      <div class="offer-list">
+        <div class="offer">
+          <h2>Use Bicycle Instead of Car</h2>
+          <p>Earn 20 points</p>
+          <button>Accept Offer</button>
+        </div>
+        <div class="offer">
+          <h2>Reduce Electricity Consumption</h2>
+          <p>Earn 15 points</p>
+          <button>Accept Offer</button>
+        </div>
+        <div class="offer">
+          <h2>Recycle Plastic Waste</h2>
+          <p>Earn 30 points</p>
+          <button>Accept Offer</button>
+        </div>
+      </div>
+    </div>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const searchInput = document.getElementById("searchInput");
+        const categoryFilter = document.getElementById("categoryFilter");
+        const offerList = document.querySelector(".offer-list");
+
+        // Function to filter offers based on category
+        function filterOffers(category) {
+          const offers = document.querySelectorAll(".offer");
+          offers.forEach(function (offer) {
+            const offerCategory = offer.dataset.category;
+            if (category === "all" || offerCategory === category) {
+              offer.style.display = "block";
+            } else {
+              offer.style.display = "none";
+            }
+          });
+        }
+
+        // Function to search offers
+        function searchOffers(searchText) {
+          const offers = document.querySelectorAll(".offer");
+          offers.forEach(function (offer) {
+            const title = offer.querySelector("h2").textContent.toLowerCase();
+            if (title.includes(searchText.toLowerCase())) {
+              offer.style.display = "block";
+            } else {
+              offer.style.display = "none";
+            }
+          });
+        }
+
+        // Event listener for search input
+        searchInput.addEventListener("input", function () {
+          const searchText = searchInput.value.trim();
+          searchOffers(searchText);
+        });
+
+        // Event listener for category filter
+        categoryFilter.addEventListener("change", function () {
+          const selectedCategory = categoryFilter.value;
+          filterOffers(selectedCategory);
+        });
+
+        // Event listener for accept offer button
+        offerList.addEventListener("click", function (event) {
+          if (event.target.tagName === "BUTTON") {
+            const offer = event.target.closest(".offer");
+            offer.classList.add("active");
+            const acceptButton = offer.querySelector("button");
+            acceptButton.textContent = "Mark as Done";
+          } else if (event.target.classList.contains("done")) {
+            const offer = event.target.closest(".offer");
+            offer.classList.add("completed");
+            offer.querySelector("button.done").textContent = "Completed";
+          }
+        });
+      });
+    </script>
+    <script src="script.js"></script>
+  </body>
+</html>

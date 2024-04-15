@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sustainable Development Website - Home</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="main.js"></script>
+  </head>
+  <body>
+    <nav id="navbar">
+      <div class="logo">
+        <img src="tree_logo.png" alt="Tree Logo" />
+        <span class="company-name">GreenGrade</span>
+      </div>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="mission.html">Mission</a></li>
+        <li><a href="tracking.html">Tracking</a></li>
+        <li><a href="awareness.html">Awareness</a></li>
+        <li><a href="community.html">Community</a></li>
+        <li><a href="redeem.html">Redeem</a></li>
+        <li><a href="support.html">Support</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="landing-page">
+      <div class="logo-container">
+        <img src="tree_logo.png" alt="Tree Logo" />
+        <h1 class="logo-text">GreenGrade</h1>
+      </div>
+      <div class="quote-container">
+        <p class="quote">Environmental Conservation Begins in You.</p>
+        <p class="sub-heading">Register today</p>
+      </div>
+      <div class="flip-card-container">
+        <!-- Flip cards go here -->
+        <div class="flip-card">
+          <div class="flip-card-front">
+            <img src="image1.png" alt="Image 1" />
+          </div>
+          <div class="flip-card-back">
+            <p>Text 1</p>
+          </div>
+        </div>
+        <div class="flip-card">
+          <div class="flip-card-front">
+            <img src="image2.png" alt="Image 2" />
+          </div>
+          <div class="flip-card-back">
+            <p>Text 2</p>
+          </div>
+        </div>
+        <div class="flip-card">
+          <div class="flip-card-front">
+            <img src="image3.png" alt="Image 3" />
+          </div>
+          <div class="flip-card-back">
+            <p>Text 3</p>
+          </div>
+        </div>
+        <div class="flip-card">
+          <div class="flip-card-front">
+            <img src="image4.png" alt="Image 4" />
+          </div>
+          <div class="flip-card-back">
+            <p>Text 4</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const flipCards = document.querySelectorAll(".flip-card");
+        flipCards.forEach(function (flipCard) {
+          flipCard.addEventListener("mouseenter", function () {
+            this.classList.add("hover");
+          });
+          flipCard.addEventListener("mouseleave", function () {
+            this.classList.remove("hover");
+          });
+        });
+      });
+    </script>
+  </body>
+</html>

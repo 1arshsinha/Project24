@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sustainable Development Website - Home</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="main.js"></script>
+  </head>
+  <body>
+    <nav id="navbar">
+      <div class="logo">
+        <img src="tree_logo.png" alt="Tree Logo" />
+        <span class="company-name">GreenGrade</span>
+      </div>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="mission.html">Mission</a></li>
+        <li><a href="tracking.html">Tracking</a></li>
+        <li><a href="awareness.html">Awareness</a></li>
+        <li><a href="community.html">Community</a></li>
+        <li><a href="redeem.html">Redeem</a></li>
+        <li><a href="support.html">Support</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="community-container">
+      <div class="post-form">
+        <textarea id="postContent" placeholder="Write something..."></textarea>
+        <input type="file" id="imageUpload" accept="image/*" />
+        <button onclick="submitPost()">Post</button>
+      </div>
+      <div class="posts">
+        <!-- Pre-defined posts -->
+        <div class="post">
+          <div class="post-header">
+            <img src="profile1.jpeg" alt="Profile Picture" />
+            <span class="username">John Doe</span>
+          </div>
+          <div class="post-content">
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis
+              auctor, dolor sit amet commodo eleifend, felis ex convallis elit,
+              non consequat libero purus eget libero.
+            </p>
+            <img src="post1.jpeg" alt="Posted Image" />
+          </div>
+          <div class="post-footer">
+            <button onclick="likePost(this)">Like</button>
+            <span class="likes">12 likes</span>
+            <button onclick="replyPost(this)">Reply</button>
+          </div>
+        </div>
+        <!-- More pre-defined posts -->
+      </div>
+    </div>
+    <script src="script.js"></script>
+    <script>
+      // Function to submit post
+      function submitPost() {
+        // Get post content
+        const postContent = document.getElementById("postContent").value;
+        // Get image file
+        const imageUpload = document.getElementById("imageUpload").files[0];
+        // Clear input fields
+        document.getElementById("postContent").value = "";
+        document.getElementById("imageUpload").value = "";
+        // Create post element
+        const postElement = document.createElement("div");
+        postElement.classList.add("post");
+        // Create post header
+        const postHeader = document.createElement("div");
+        postHeader.classList.add("post-header");
+        postHeader.innerHTML = `
+                <img src="profile2.jpg" alt="Profile Picture">
+                <span class="username">Jane Smith</span>
+            `;
+        // Create post content
+        const postContentElement = document.createElement("div");
+        postContentElement.classList.add("post-content");
+        postContentElement.innerHTML = `
+                <p>${postContent}</p>
+            `;
+        // Add image if uploaded
+        if (imageUpload) {
+          const imageElement = document.createElement("img");
+          imageElement.src = URL.createObjectURL(imageUpload);
+          imageElement.alt = "Posted Image";
+          postContentElement.appendChild(imageElement);
+        }
+        // Create post footer
+        const postFooter = document.createElement("div");
+        postFooter.classList.add("post-footer");
+        postFooter.innerHTML = `
+                <button onclick="likePost(this)">Like</button>
+                <span class="likes">0 likes</span>
+                <button onclick="replyPost(this)">Reply</button>
+            `;
+        // Append elements to post
+        postElement.appendChild(postHeader);
+        postElement.appendChild(postContentElement);
+        postElement.appendChild(postFooter);
+        // Append post to posts container
+        const postsContainer = document.querySelector(".posts");
+        postsContainer.insertBefore(postElement, postsContainer.firstChild);
+      }
+
+      // Function to handle post like
+      function likePost(button) {
+        const likesSpan = button.nextElementSibling;
+        const currentLikes = parseInt(likesSpan.textContent.split(" ")[0]);
+        likesSpan.textContent = `${currentLikes + 1} likes`;
+        button.classList.add("clicked"); // Change button color to green
+      }
+      // Function to handle post reply
+      function replyPost(button) {
+        // Placeholder for reply functionality
+        alert("Reply functionality coming soon!");
+      }
+    </script>
+  </body>
+</html>

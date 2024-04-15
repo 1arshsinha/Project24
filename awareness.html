@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sustainable Development Website - Home</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="main.js"></script>
+  </head>
+  <body>
+    <nav id="navbar">
+      <div class="logo">
+        <img src="tree_logo.png" alt="Tree Logo" />
+        <span class="company-name">GreenGrade</span>
+      </div>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="mission.html">Mission</a></li>
+        <li><a href="tracking.html">Tracking</a></li>
+        <li><a href="awareness.html">Awareness</a></li>
+        <li><a href="community.html">Community</a></li>
+        <li><a href="redeem.html">Redeem</a></li>
+        <li><a href="support.html">Support</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+    <h1 class="idk">Our Initiatives</h1>
+    <h2 style="text-align: center; color: goldenrod">
+      Campagins Over The Globe
+    </h2>
+    <div class="awareness-container">
+      <div class="campaigns">
+        <div class="campaign-box">
+          <h2>Virtual Plant a Tree Drive</h2>
+        </div>
+        <div class="campaign-box">
+          <h2>Reduce Plastic Waste Initiative</h2>
+        </div>
+        <div class="campaign-box">
+          <h2>Renewable Energy Awareness Program</h2>
+        </div>
+      </div>
+      <div class="expert-session">
+        <div class="session-info">
+          <h2 style="text-align: center; color: goldenrod">
+            Upcoming Expert Session
+          </h2>
+          <p><strong>Date:</strong> April 15, 2024</p>
+          <a href="meet.google.com" class="join-link">Join Session</a>
+        </div>
+        <div class="expert-info">
+          <img src="expert_photo.png" alt="Expert Photo" />
+          <h3>Climate Change Impacts Webinar with XXX</h3>
+        </div>
+      </div>
+      <div class="sustainability-calculator">
+        <h2 style="text-align: center; color: goldenrod">
+          Interactive Sustainability Calculator
+        </h2>
+        <div class="question">
+          <p>Did you use a bicycle to travel today?</p>
+          <button onclick="calculateFootprint('yes')">Yes</button>
+          <button onclick="calculateFootprint('no')">No</button>
+        </div>
+        <div class="result">
+          <p>
+            Congratulations! You saved XX kg of carbon footprint. You have
+            earned XXX points.
+          </p>
+        </div>
+      </div>
+    </div>
+    <script>
+      // Function to calculate carbon footprint and display result
+      function calculateFootprint(answer) {
+        const resultContainer = document.querySelector(".result");
+        // Clear previous result
+        resultContainer.innerHTML = "";
+
+        if (answer === "yes") {
+          const savedCarbon = Math.floor(Math.random() * 20) + 10; // Random carbon footprint saved between 10 and 30
+          const pointsEarned = Math.floor(savedCarbon / 2); // Points earned (half of saved carbon)
+          const congratsMessage = document.createElement("p");
+          congratsMessage.textContent = `Congratulations! You saved ${savedCarbon} kg of carbon footprint. You have earned ${pointsEarned} points.`;
+          resultContainer.appendChild(congratsMessage);
+        } else if (answer === "no") {
+          const nextQuestion = document.createElement("p");
+          nextQuestion.textContent =
+            "Did you carpool or use public transportation today?";
+          const buttonsContainer = document.createElement("div");
+          buttonsContainer.classList.add("question");
+          const yesButton = document.createElement("button");
+          yesButton.textContent = "Yes";
+          yesButton.onclick = () => calculateFootprint("yes");
+          const noButton = document.createElement("button");
+          noButton.textContent = "No";
+          noButton.onclick = () => calculateFootprint("no");
+          buttonsContainer.appendChild(nextQuestion);
+          buttonsContainer.appendChild(yesButton);
+          buttonsContainer.appendChild(noButton);
+          resultContainer.appendChild(buttonsContainer);
+        }
+      }
+    </script>
+    <script src="script.js"></script>
+  </body>
+</html>

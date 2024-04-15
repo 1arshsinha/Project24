@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sustainable Development Website - Home</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="main.js"></script>
+  </head>
+  <body>
+    <nav id="navbar">
+      <div class="logo">
+        <img src="tree_logo.png" alt="Tree Logo" />
+        <span class="company-name">GreenGrade</span>
+      </div>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="mission.html">Mission</a></li>
+        <li><a href="tracking.html">Tracking</a></li>
+        <li><a href="awareness.html">Awareness</a></li>
+        <li><a href="community.html">Community</a></li>
+        <li><a href="redeem.html">Redeem</a></li>
+        <li><a href="support.html">Support</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav><style>
+      body {
+        font-family: Arial, sans-serif;
+      }
+      .container {
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+      input, textarea {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+      }
+      button {
+        padding: 10px 20px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+      button:hover {
+        background-color: #0056b3;
+      }
+    </style>
+  </head>
+  <body>
+  
+  <div class="container">
+    <h2>Contact Us</h2>
+    <form id="contactForm">
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" required>
+  
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required>
+  
+      <label for="subject">Subject:</label>
+      <input type="text" id="subject" name="subject" required>
+  
+      <label for="message">Message:</label>
+      <textarea id="message" name="message" rows="4" required></textarea>
+  
+      <button type="submit">Send Message</button>
+    </form>
+  </div>
+  
+  <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+  <script>
+    (function() {
+      emailjs.init("YOUR_USER_ID"); // Replace with your EmailJS user ID
+  
+      document.getElementById('contactForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+        // Collect user input
+        const formData = new FormData(this);
+  
+        // Send email using EmailJS
+        emailjs.sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', formData)
+          .then(function(response) {
+            console.log('Email sent successfully:', response);
+            alert('Your message has been sent. Thank you!');
+          }, function(error) {
+            console.error('Email send failed:', error);
+            alert('An error occurred. Please try again later.');
+          });
+      });
+    })();
+  </script>
+    <script src="script.js"></script>
+  </body>
+</html>

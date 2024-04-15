@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sustainable Development Website - Home</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="main.js"></script>
+  </head>
+  <body>
+    <nav id="navbar">
+      <div class="logo">
+        <img src="tree_logo.png" alt="Tree Logo" />
+        <span class="company-name">GreenGrade</span>
+      </div>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="mission.html">Mission</a></li>
+        <li><a href="tracking.html">Tracking</a></li>
+        <li><a href="awareness.html">Awareness</a></li>
+        <li><a href="community.html">Community</a></li>
+        <li><a href="redeem.html">Redeem</a></li>
+        <li><a href="support.html">Support</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="redeem-container">
+      <div class="fade-up">
+        <h1>Points Collected</h1>
+      </div>
+      <div class="points-counter fade-up">
+        <span id="pointsCount">0</span>
+        <!-- Display points count -->
+      </div>
+      <div class="fade-up">
+        <h2>
+          You have saved <span class="golden-text">72</span> kg of carbon
+          footprint!
+        </h2>
+        <!-- Display carbon footprint saved -->
+      </div>
+      <div class="reward-options">
+        <h2 class="claim-heading">Claim Your Reward</h2>
+        <!-- Reward options heading -->
+        <div class="reward-option fade-up">
+          <a href="mailto:example@example.com">
+            <img src="giftcard_logo.png" alt="Gift Card Logo" />
+            <!-- Add Gift Card logo -->
+          </a>
+          <p>Gift Card</p>
+        </div>
+        <div class="reward-option fade-up">
+          <a href="mailto:example@example.com">
+            <img src="paypal_logo.png" alt="PayPal Logo" />
+            <!-- Add PayPal logo -->
+          </a>
+          <p>PayPal</p>
+        </div>
+      </div>
+    </div>
+    <script src="script.js"></script>
+    <script>
+      // Animation to count up to 72 points
+      // Animation to count up to 72 points
+      document.addEventListener("DOMContentLoaded", function () {
+        const pointsCount = document.getElementById("pointsCount");
+        let count = 0;
+        const interval = setInterval(() => {
+          count++;
+          pointsCount.textContent = count;
+          if (count === 72) {
+            clearInterval(interval);
+            pointsCount.classList.add("golden-box"); // Add golden box class
+          }
+        }, 50); // Adjust speed as needed
+      });
+    </script>
+  </body>
+</html>
